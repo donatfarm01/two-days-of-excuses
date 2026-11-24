@@ -56,4 +56,28 @@ result recorded below.
 
 ## Kit check
 
-Result recorded after the bundle and check runs.
+Run against commit 6dd092639fd72e51e942ccc0ed4064a3dbe9ce4e with the
+transcript bundle transcripts.tar.gz (150,289 bytes, SHA-256
+ea4e4a67a8a3fbcfeb2e80c806205f5958bb6a4e14bcba27073c85a005a872c9).
+
+Result: 13 passed, 1 failed, 5 skipped, 5 checked at submission. The
+passes include the competition being open, the snapshot size caps, the
+MIT SPDX license, the Python 3.13 entrypoint, the transcripts being
+present and recorded, well-formed transcripts inside the window, thinking
+reproducing 93.0 percent of the counted lines (67 of 72 authored, 0
+pasted, against a 30 percent floor), 24 assistant turns, genuine revision
+(BUILD-NOTES.md from 3 write or edit messages, main.py from 2), a
+matching run record, and the deliverable being the agent's own work.
+
+The single failure is thinking priced: the bundle carries 0 usage rows,
+because a subagent session's usage rows are written to the usage database
+only once its run completes. The fix belongs to the parent: after this
+session ends, recover the usage rows for this session and the parent
+session, re-bundle with them attached, and re-check before submitting.
+Everything else already passes, and the at-submission items are satisfied
+in fact: the repository is public, its owner is the account's GitHub
+login, it was created after the opening, and the commit is pushed to its
+main branch.
+
+This bounty has no local benchmark or floor in its kit, so the gate check
+above is the validation the kit provides; the server grades the entry.
